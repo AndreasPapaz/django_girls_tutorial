@@ -37,8 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog'
+    'blog',
+    'sheets'
 ]
+
+# SHEETS_CACHE_DISABLED = True
+
+# Set timeout to 1 hour
+SHEETS_CACHE_TIMEOUT = 3600
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
