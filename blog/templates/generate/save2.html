@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form method='post'>{% csrf_token %}
+  {{ formset.management_form }}
+  <div class="container">
+      <div class="row clearfix">
+  		<div class="col-md-12 column">
+  			<table class="table table-bordered table-hover" id="tab_logic">
+          <thead>
+            {% for form in formset %}
+              {%  for field in form %}
+              <th class="text-center">
+                {{ field.label_tag }}
+              </th>
+              {% endfor %}
+            {% endfor %}
+          </thead>
+          <tbody>
+            {% for form in formset %}
+              {% for field in form %}
+              <td>
+                {{ field }}
+              </td>
+              {% endfor %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <input type='hidden' value='false' name='additems' id='additems'>
+  <button class='btn btn-primary' id='additemsbutton'>Add Items</button>
+  <input type='submit' value='Submit Order' class='btn btn-primary'>
+</form>
+<script>
+  $(document).ready(function() {
+        $("#additemsbutton").on('click',function(event) {
+         $("#additems").val("true");
+       });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- <form action="/test" method="POST" enctype="multipart/form-data" class="form-horizontal">
+  {% csrf_token %}
+  <div class="form-group">
+      <label for="name" class="col-md-3 col-sm-3 col-xs-12 control-label">File: </label>
+      <div class="col-md-8">
+          <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
+      </div>
+  </div>
+  <div class="form-group">
+      <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3" style="margin-bottom:10px;">
+           <button class="btn btn-primary"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;"></span>Upload </button>
+      </div>
+  </div>
+</form> -->
+<form action='/test' method="POST" enctype='multipart/form-data' class='form-horizontal'>
+  {% csrf_token%}
+<div class="container">
+    <div class="row clearfix">
+		<div class="col-md-12 column">
+			<table class="table table-bordered table-hover" id="tab_logic">
+				<thead>
+					<tr>
+						<th class="text-center">
+							Deal
+						</th>
+            <th class="text-center">
+							Marketing
+						</th>
+						<th class="text-center">
+							English
+						</th>
+            <th class="text-center">
+							Spanish
+						</th>
+						<th class="text-center">
+							Hero Image
+						</th>
+            <th class="text-center">
+							Thumbnail Image
+						</th>
+            <th class="text-center">
+							Template Name
+						</th>
+            <th class="text-center">
+							HTML Name (- seperated)
+						</th>
+            <th class="text-center">
+							Description
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+          {{ form.as_table }}
+					<!-- <tr id='addr0'>
+						<td>
+               <label class='btn'>
+                 <input type="checkbox" name='deal' checked><label></label>
+               </label>
+						</td>
+            <td>
+              <label class='btn'>
+                <input type="checkbox" name='marketing' checked><label></label>
+						</td>
+            <td>
+              <label class='btn'>
+                <input type="checkbox" name='en' checked><label></label>
+              </label>
+						</td>
+            <td>
+              <label class='btn'>
+                <input type="checkbox" name='es' checked><label></label>
+              </label>
+						</td>
+            <td class='td-name file_upload'>
+              <label for='file'>Choose Img</label>
+						</td>
+						<td class='td-name file_upload'>
+              <label for='file'>Choose Img</label>
+						</td>
+            <td class='td-name'>
+						  <input type="text" label='template' name='template' placeholder='template name' autocomplete="off"/>
+						</td>
+            <td class='td-name'>
+						  <input type="text" name='html' placeholder='HTML Name' autocomplete="off"/>
+						</td>
+            <td class='td-name'>
+						  <textarea name='desc' id="exampleFormControlTextarea1" rows="3" autocomplete="off"></textarea>
+						</td>
+					</tr> -->
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+</div>
+<div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3" style="margin-bottom:10px;">
+     <button class="btn btn-primary"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;"></span>Upload </button>
+</div>
+</form>
+{% endblock %}

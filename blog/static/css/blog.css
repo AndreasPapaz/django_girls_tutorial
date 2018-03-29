@@ -1,3 +1,26 @@
-body {
-  
+@import url(https://fonts.googleapis.com/css?family=Raleway:700);
+
+@import url(https://fonts.googleapis.com/css?family=Yeseva+One);
+
+@import url(https://fonts.googleapis.com/css?family=Loved+by+the+King);
+
+h1{
+  font-family: 'Raleway';
+  font-weight: 800;
+  letter-spacing: 20px;
+  font-size:70px;
+  text-align:center;
+  margin-top:0;
+  margin-bottom:0;
+}
+
+.card{
+  background-color: pink;
+  margin: 10px;
+}
+
+input{
+  background: none;
+  border: none;
+  width: 100%;
 }

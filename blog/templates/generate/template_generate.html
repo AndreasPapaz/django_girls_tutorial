@@ -1,84 +1,43 @@
 {% extends 'base.html' %}
 {% block content %}
-<!-- <form action="/test" method="POST" enctype="multipart/form-data" class="form-horizontal">
-  {% csrf_token %}
-  <div class="form-group">
-      <label for="name" class="col-md-3 col-sm-3 col-xs-12 control-label">File: </label>
-      <div class="col-md-8">
-          <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
-      </div>
-  </div>
-  <div class="form-group">
-      <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3" style="margin-bottom:10px;">
-           <button class="btn btn-primary"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;"></span>Upload </button>
-      </div>
-  </div>
-</form> -->
-<div class="container">
-    <div class="row clearfix">
-		<div class="col-md-12 column">
-			<table class="table table-bordered table-hover" id="tab_logic">
-				<thead>
-					<tr >
-						<th class="text-center">
-							#
-						</th>
-						<th class="text-center">
-							Type
-						</th>
-						<th class="text-center">
-							Language
-						</th>
-						<th class="text-center">
-							Hero Image
-						</th>
-            <th class="text-center">
-							Thumbnail Image
-						</th>
-            <th class="text-center">
-							Template Name
-						</th>
-            <th class="text-center">
-							HTML Name (- seperated)
-						</th>
-            <th class="text-center">
-							Description
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr id='addr0'>
-						<td>
-						  1
-						</td>
-						<td>
-						  <input type="text" name='name0'  placeholder='Name' class="form-control"/>
-						</td>
-						<td>
-						  <input type="text" name='mail0' placeholder='Mail' class="form-control"/>
-						</td>
-						<td>
-						  <input type="text" name='mobile0' placeholder='Mobile' class="form-control"/>
-						</td>
-            <td>
-						  <input type="text" name='mobile0' placeholder='Mobile' class="form-control"/>
-						</td>
-            <td>
-						  <input type="text" name='mobile0' placeholder='Mobile' class="form-control"/>
-						</td>
-            <td>
-						  <input type="text" name='mobile0' placeholder='Mobile' class="form-control"/>
-						</td>
-            <td>
-						  <input type="text" name='mobile0' placeholder='Mobile' class="form-control"/>
-						</td>
-					</tr>
-                    <tr id='addr1'></tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
-	<a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
-</div>
 
+<div class='clearfix'>
+<form action='/test' method="POST" enctype='multipart/form-data'>{% csrf_token %}
+{{ formset.management_form }}
+{% for form in formset %}
+  <div class='card'>
+    <label for='{{ form.type.id_for_label }}'>Type:</label>
+    {{ form.type }}
+
+    <label for='{{ form.language.id_for_label }}'>Language:</label>
+    {{ form.language }}
+
+    <label for='{{ form.marketing.id_for_label }}'>Hero Image:</label>
+    {{ form.hero }}
+
+    <label for='{{ form.marketing.id_for_label }}'>Thumbnail Image:</label>
+    {{ form.thumb }}
+
+    <label for='{{ form.marketing.id_for_label }}'>Template:</label>
+    {{ form.template }}
+
+    <label for='{{ form.marketing.id_for_label }}'>HTML Name:</label>
+    {{ form.html }}
+
+    <label for='{{ form.marketing.id_for_label }}'>Description:</label>
+    {{ form.desc }}
+  </div>
+{% endfor %}
+<input type='hidden' value='false' name='additems' id='additems'>
+<button class='btn btn-primary' id='additemsbutton'>Add Items</button>
+<input type='submit' value='Submit Order' class='btn btn-primary'>
+</form>
+</div>
+<script>
+  $(document).ready(function() {
+        $("#additemsbutton").on('click',function(event) {
+         $("#additems").val("true");
+       });
+  });
+</script>
 {% endblock %}
