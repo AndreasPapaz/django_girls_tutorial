@@ -11,8 +11,6 @@ Language_template = (('en', 'English',), ('es', 'Spanish',))
 class TemplateForm(forms.Form):
     type = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=Type_template)
     language = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=Language_template)
-    en = forms.BooleanField(widget=forms.RadioSelect)
-    es = forms.BooleanField(widget=forms.RadioSelect)
 
     hero = forms.ImageField()
     thumb = forms.ImageField()
@@ -20,6 +18,3 @@ class TemplateForm(forms.Form):
     template = forms.CharField()
     html = forms.CharField()
     desc = forms.CharField(widget=forms.Textarea)
-
-
-# TemplateFormSet = formset_factory(TemplateForm, extra=1, max_num=20)

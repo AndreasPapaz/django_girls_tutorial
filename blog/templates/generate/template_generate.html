@@ -5,6 +5,11 @@
 <form action='/test' method="POST" enctype='multipart/form-data'>{% csrf_token %}
 {{ formset.management_form }}
 {% for form in formset %}
+  {% if formset.errors %}
+    {% for error in formset.errors %}
+      {{ errors|escape }}
+    {% endfor %}
+  {% endif %}
   <div class='card'>
     <label for='{{ form.type.id_for_label }}'>Type:</label>
     {{ form.type }}
