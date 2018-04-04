@@ -35,14 +35,35 @@
 {% endfor %}
 <input type='hidden' value='false' name='additems' id='additems'>
 <button class='btn btn-primary' id='additemsbutton'>Add Items</button>
+<input type='hidden' value='false' name='removeitems' id='removeitems'>
+<button class='btn btn-primary' id='removeitemsbutton'>Remove Items</button>
 <input type='submit' value='Submit Order' class='btn btn-primary'>
 </form>
 </div>
 <script>
-  $(document).ready(function() {
-        $("#additemsbutton").on('click',function(event) {
-         $("#additems").val("true");
-       });
-  });
+  // $(document).ready(function() {
+  //   $("#additemsbutton").on('click',function(event) {
+  //     $("#additems").val("true");
+  //   });
+  //
+  //   $("#removeitemsbutton").on('click', function(event) {
+  //     $("#removeitems").val("true");
+  //   });
+  // });
+  window.onload = function(event) {
+    var addForm = document.getElementById('additemsbutton');
+    var addVal = document.getElementById('additems');
+
+    var removeForm = document.getElementById('removeitemsbutton');
+    var removeVal = document.getElementById('removeitems');
+
+    addForm.addEventListener('click', function() {
+      addVal.value = true;
+    });
+
+    removeForm.addEventListener('click', function() {
+      removeVal.value = true;
+    });
+  }
 </script>
 {% endblock %}
